@@ -36,8 +36,8 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
   {
     id: "playa-caracol",
     name: "Playa Caracol (Tu Base)",
-    lat: 8.6434,
-    lng: -79.7077,
+    lat: 8.5775,
+    lng: -79.7893,
     description: "Tu hogar durante el circuito. Radisson Riviera, Vento Beach Club y playa frente al mar.",
     category: "Base",
   },
@@ -52,24 +52,24 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
   {
     id: "cerro-chame",
     name: "Cerro Chame",
-    lat: 8.6000,
-    lng: -79.8167,
+    lat: 8.5963,
+    lng: -79.8241,
     description: "Hiking a 560m. Amanecer épico con vista 360° del Pacífico y la selva.",
     category: "Aventura",
   },
   {
     id: "punta-chame",
     name: "Punta Chame",
-    lat: 8.5750,
-    lng: -79.7350,
+    lat: 8.5755,
+    lng: -79.7351,
     description: "Kitesurf, paddleboard y atardeceres espectaculares. Vientos Nov-Mar.",
     category: "Surf & Chill",
   },
   {
     id: "islas-otoque",
     name: "Islas Otoque y Boná",
-    lat: 8.6000,
-    lng: -79.6000,
+    lat: 8.6047,
+    lng: -79.6053,
     description: "Islas vírgenes a 30 min en bote. Snorkel, pesca y playas desiertas.",
     category: "Islas",
   },
@@ -92,14 +92,14 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
   {
     id: "ans-surfside",
     name: "ANS SurfSide",
-    lat: 8.6440,
-    lng: -79.7080,
+    lat: 8.5780,
+    lng: -79.7890,
     description: "Clases de surf con instructores certificados ISA. Playa perfecta para aprender.",
     category: "Surf & Chill",
   },
 ];
 
-const MAP_CENTER: [number, number] = [8.62, -79.80];
+const MAP_CENTER: [number, number] = [8.60, -79.80];
 const MAP_ZOOM = 11;
 
 function FlyTo({ target }: { target: [number, number] | null }) {
