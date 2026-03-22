@@ -60,8 +60,8 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
   {
     id: "punta-chame",
     name: "Punta Chame",
-    lat: 8.5755,
-    lng: -79.7351,
+    lat: 8.6571,
+    lng: -79.6981,
     description: "Kitesurf, paddleboard y atardeceres espectaculares. Vientos Nov-Mar.",
     category: "Surf & Chill",
   },
