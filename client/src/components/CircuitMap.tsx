@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { MapPin } from "lucide-react";
 
 // Fix Leaflet default icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -28,7 +29,6 @@ interface Destination {
   lat: number;
   lng: number;
   description: string;
-  icon: string;
   category: string;
 }
 
@@ -36,10 +36,9 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
   {
     id: "playa-caracol",
     name: "Playa Caracol (Tu Base)",
-    lat: 8.5617,
-    lng: -79.7023,
+    lat: 8.5658,
+    lng: -79.6845,
     description: "Tu hogar durante el circuito. Radisson Riviera, Vento Beach Club y playa frente al mar.",
-    icon: "🏖️",
     category: "Base",
   },
   {
@@ -48,43 +47,38 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
     lat: 8.6200,
     lng: -79.8100,
     description: "7 cascadas naturales en la selva. Rappel, caminata y pozas cristalinas.",
-    icon: "🌊",
     category: "Aventura",
   },
   {
     id: "cerro-chame",
     name: "Cerro Chame",
-    lat: 8.5750,
-    lng: -79.6800,
+    lat: 8.5500,
+    lng: -79.6700,
     description: "Hiking a 560m. Amanecer épico con vista 360° del Pacífico y la selva.",
-    icon: "⛰️",
     category: "Aventura",
   },
   {
     id: "punta-chame",
     name: "Punta Chame",
-    lat: 8.5485,
-    lng: -79.7296,
+    lat: 8.5220,
+    lng: -79.7150,
     description: "Kitesurf, paddleboard y atardeceres espectaculares. Vientos Nov-Mar.",
-    icon: "🪁",
     category: "Surf & Chill",
   },
   {
     id: "islas-otoque",
     name: "Islas Otoque y Boná",
-    lat: 8.4710,
-    lng: -79.5467,
+    lat: 8.4500,
+    lng: -79.5300,
     description: "Islas vírgenes a 30 min en bote. Snorkel, pesca y playas desiertas.",
-    icon: "🏝️",
     category: "Islas",
   },
   {
     id: "isla-taborcillo",
     name: "Isla Taborcillo",
-    lat: 8.4898,
-    lng: -79.5752,
+    lat: 8.4700,
+    lng: -79.5550,
     description: "Isla privada con infraestructura. Day pass y recorrido de manglares.",
-    icon: "🌴",
     category: "Islas",
   },
   {
@@ -93,16 +87,14 @@ const CIRCUIT_DESTINATIONS: Destination[] = [
     lat: 8.6035,
     lng: -80.1264,
     description: "Pueblo en un cráter volcánico. Aguas termales, cascadas y biodiversidad.",
-    icon: "🌋",
     category: "Eco",
   },
   {
     id: "ans-surfside",
     name: "ANS SurfSide",
-    lat: 8.5612,
-    lng: -79.7010,
+    lat: 8.5632,
+    lng: -79.6883,
     description: "Clases de surf con instructores certificados ISA. Playa perfecta para aprender.",
-    icon: "🏄",
     category: "Surf & Chill",
   },
 ];
@@ -165,7 +157,7 @@ export default function CircuitMap() {
                       }`}
                     >
                       <div className="flex items-center gap-2">
-                        <span className="text-lg">{dest.icon}</span>
+                        <MapPin className={`w-3.5 h-3.5 shrink-0 ${active === dest.id ? "text-sunset" : "text-jungle-dark"}`} />
                         <div className="min-w-0">
                           <p className={`font-semibold text-xs ${active === dest.id ? "text-sunset" : "text-jungle-dark"}`}>
                             {dest.name}
@@ -204,7 +196,6 @@ export default function CircuitMap() {
                 >
                   <Popup>
                     <div className="min-w-[180px]">
-                      <p className="text-lg mb-1">{dest.icon}</p>
                       <h3 className="font-bold text-sm">{dest.name}</h3>
                       <p className="text-xs text-gray-600 mt-1">{dest.description}</p>
                       <p className="text-[10px] text-orange-600 font-semibold mt-1">{dest.category}</p>
