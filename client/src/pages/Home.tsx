@@ -10,6 +10,7 @@ import { Star, ChevronRight, ArrowRight, Coffee, Sun, Sunset as SunsetIcon, Moon
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CircuitMap from "@/components/CircuitMap";
 import { IMAGES, CIRCUITOS, PAQUETES, BASE_SECTIONS, TESTIMONIALS, STATS, WHATSAPP } from "@/lib/data";
 
 export default function Home() {
@@ -96,7 +97,7 @@ export default function Home() {
             {/* 6:30 AM — Despierta */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center pb-12">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                <img src={IMAGES.radissonLounge} alt="Tu habitación en el Radisson Riviera" className="w-full h-full object-cover" />
+                <img src={IMAGES.radissonLounge} alt="Tu habitación en el Radisson Riviera" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -136,7 +137,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="order-1 lg:order-2 rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                <img src={IMAGES.cascadaCanyon} alt="Aventura en las cascadas" className="w-full h-full object-cover" />
+                <img src={IMAGES.cascadaCanyon} alt="Aventura en las cascadas" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
 
@@ -148,7 +149,7 @@ export default function Home() {
             {/* 2:00 PM — Vuelve al Paraíso */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center pb-12">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                <img src={IMAGES.radissonPool} alt="Piscina infinity Radisson Riviera" className="w-full h-full object-cover" />
+                <img src={IMAGES.radissonPool} alt="Piscina infinity Radisson Riviera" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -188,7 +189,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="order-1 lg:order-2 rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                <img src={IMAGES.beachClubSunset} alt="Cena en Vento Beach Club" className="w-full h-full object-cover" />
+                <img src={IMAGES.beachClubSunset} alt="Cena en Vento Beach Club" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
 
@@ -200,7 +201,7 @@ export default function Home() {
             {/* 9:00 PM — Descansa */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                <img src={IMAGES.radissonLounge} alt="Tu habitación" className="w-full h-full object-cover" />
+                <img src={IMAGES.radissonLounge} alt="Tu habitación" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-3">
@@ -244,7 +245,7 @@ export default function Home() {
             {PAQUETES.map((p) => (
               <Link key={p.id} href={`/paquete/${p.id}`} className="group bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-sunset/50 transition-all block">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-sunset text-white text-xs font-bold uppercase rounded-full">
                       {p.nights} noches
@@ -336,7 +337,7 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {CIRCUITOS.map((c) => (
               <Link key={c.id} href={`/circuitos/${c.id}`} className="group relative rounded-2xl overflow-hidden aspect-[3/4] block">
-                <img src={c.image} alt={c.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={c.image} alt={c.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -367,7 +368,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BASE_SECTIONS.map((section, i) => (
               <div key={section.id} className={`group relative rounded-2xl overflow-hidden ${i === 0 ? "md:col-span-2 aspect-[2.5/1]" : "aspect-[16/10]"}`}>
-                <img src={section.image} alt={section.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={section.image} alt={section.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                   <span className="text-sunset text-xs font-semibold uppercase tracking-wider">{section.tagline}</span>
@@ -422,6 +423,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ═══ MAPA DEL CIRCUITO ═══ */}
+      <CircuitMap />
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="relative py-28">
